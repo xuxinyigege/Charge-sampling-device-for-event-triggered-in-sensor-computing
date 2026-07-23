@@ -1,0 +1,11 @@
+image,label,prediction,correct
+../data/test_cropped/0/0.png,0,0,True
+../data/test_cropped/1/1.png,1,1,True
+../data/test_cropped/2/2.png,2,2,True
+../data/test_cropped/3/3.png,3,3,True
+../data/test_cropped/4/4.png,4,4,True
+../data/test_cropped/5/5.png,5,5,True
+../data/test_cropped/6/6.png,6,6,True
+../data/test_cropped/7/7.png,7,7,True
+../data/test_cropped/8/8.png,8,8,True
+../data/test_cropped/9/9.png,9,9,True
