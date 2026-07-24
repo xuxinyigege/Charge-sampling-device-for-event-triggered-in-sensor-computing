@@ -1,9 +1,8 @@
 # Charge sampling device for event-triggered in-sensor computing
 
-This repository contains code for two experiments used in the GCCD in-sensor-computing study:
+This repository contains code for the face recognition simulations used in the GCCD in-sensor-computing study.
 
-1. **Face Recognition Simulations**: Haar-based face detection and ResNet-based face recognition.
-2. **In-sensor Computing Experiments**: 4 x 4 GCCD-array for `Z`, `J`, and `U` letter recognition using fully connected and convolutional operations.
+**Face Recognition Simulations** includes Haar-based face detection and ResNet-based face recognition.
 
 ## Structure
 
@@ -24,21 +23,6 @@ This repository contains code for two experiments used in the GCCD in-sensor-com
 │       ├── train_resnet.py
 │       ├── predict_resnet.py
 │       └── demo_pipeline.py
-├── In-sensor Computing Experiments/
-│   ├── data/
-│   │   ├── patterns.csv
-│   │   └── zju_10db_dataset.npz
-│   ├── models/
-│   │   └── legacy_mlp_weights.npz
-│   ├── outputs/
-│   │   ├── convolution_demo.csv
-│   │   ├── zju_predictions.csv
-│   │   └── zju_summary.json
-│   └── src/
-│       ├── convolution_demo.py
-│       ├── evaluate_mlp.py
-│       ├── generate_dataset.py
-│       └── zju_utils.py
 ├── requirements.txt
 └── README.md
 ```
@@ -111,30 +95,3 @@ The new state dict is saved to:
 ```text
 Face Recognition Simulations/models/face_resnet_state.pt
 ```
-
-## In-sensor Computing Experiments
-
-This folder contains the 4 x 4 GCCD-array experiment for recognizing the letters `Z`, `J`, and `U`.
-
-The workflow was:
-
-1. Define ideal `4 x 4` binary patterns for `Z`, `J`, and `U`.
-2. Generate noisy samples at 10 dB SNR.
-3. Flatten each `4 x 4` pattern into 16 inputs.
-4. Use a `16 -> 8 -> 3` MLP classifier.
-5. Map the first weighted-sum layer to the GCCD array.
-
-Run the evaluation:
-
-```bash
-cd "In-sensor Computing Experiments"
-python src/evaluate_mlp.py
-python src/convolution_demo.py
-```
-
-`src/convolution_demo.py` demonstrates the 4 x 4 convolutional weighted-sum operation and writes the result to:
-
-```text
-In-sensor Computing Experiments/outputs/convolution_demo.csv
-```
-
