@@ -1,8 +1,10 @@
-# Face Detection and Recognition Experiment
+# Face Recognition and 4 x 4 GCCD Array Simulations
 
-This folder contains the cleaned code used for the face-detection and
-face-recognition experiment in “Charge sampling device for event-triggered
-in-sensor computing”.
+This repository contains cleaned code for two experiments used in “Charge
+sampling device for event-triggered in-sensor computing”:
+
+1. face detection and face recognition;
+2. 4 x 4 GCCD-array simulations for `Z`, `J`, and `U` letter recognition.
 
 Human-face image files are not included in this public repository for privacy
 and consent reasons. The folder structure is kept so users can place their own
@@ -28,6 +30,11 @@ face_experiment_github/
     ├── predict_resnet.py
     ├── demo_pipeline.py
     └── export_legacy_state_dict.py
+└── neuromorphic_zju/
+    ├── data/
+    ├── models/
+    ├── outputs/
+    └── src/
 ```
 
 ## Installation
@@ -129,3 +136,33 @@ data/test_cropped/0/*.png
 data/test_cropped/1/*.png
 ...
 ```
+
+## Neuromorphic Z/J/U Letter Recognition
+
+The `neuromorphic_zju/` folder contains the cleaned 4 x 4 GCCD-array experiment
+for recognizing the letters `Z`, `J`, and `U`.
+
+The legacy MATLAB workflow was:
+
+1. define ideal `4 x 4` binary patterns for `Z`, `J`, and `U`;
+2. generate noisy samples at 10 dB SNR;
+3. flatten each `4 x 4` pattern into 16 inputs;
+4. use a `16 -> 8 -> 3` MLP classifier;
+5. map the first weighted-sum layer to the GCCD array.
+
+Run the cleaned evaluation:
+
+```bash
+cd neuromorphic_zju
+python src/evaluate_mlp.py
+python src/convolution_demo.py
+```
+
+Expected MLP test accuracy:
+
+```text
+accuracy_float_first_layer: 0.9933333333333333
+accuracy_rounded_first_layer: 0.9955555555555555
+```
+
+See `neuromorphic_zju/README.md` for details.

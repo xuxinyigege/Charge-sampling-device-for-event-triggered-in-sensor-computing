@@ -1,0 +1,8 @@
+{
+  "task": "Z/J/U recognition from noisy 4x4 patterns",
+  "samples_per_class": 500,
+  "test_samples_per_class": 150,
+  "snr_db": 10,
+  "accuracy_float_first_layer": 0.9933333333333333,
+  "accuracy_rounded_first_layer": 0.9955555555555555
+}
