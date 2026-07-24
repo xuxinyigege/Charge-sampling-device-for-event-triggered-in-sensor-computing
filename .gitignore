@@ -1,5 +1,5 @@
 __pycache__/
 *.pyc
 .DS_Store
-outputs/detected_crops/
-outputs/detection_overlays/
+Face Recognition Simulations/outputs/detected_crops/
+Face Recognition Simulations/outputs/detection_overlays/
